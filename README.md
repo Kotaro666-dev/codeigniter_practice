@@ -1,4 +1,4 @@
-# Name（リポジトリ/プロジェクト/OSSなどの名前）
+# Name
 
 Codeigniter Practice
 
@@ -9,12 +9,10 @@ Codeigniter Practice
 
 # Usage
 
-DEMOの実行方法など、"hoge"の基本的な使い方を説明する
-
 ```bash
 git clone https://github.com/Kotaro666-dev/codeigniter_practice.git
 cd codeigniter_practice
 docker compose up -d
 ```
 
-Go to http://localhost:8080
+Then go to http://localhost:8080
