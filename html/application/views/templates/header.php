@@ -4,6 +4,7 @@
 <!--        <link rel="stylesheet" href="/assets/css/bootstrap.min.css">-->
         <link rel="stylesheet" href="/assets/css/style.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@3.4.0/cosmo/bootstrap.css">
+        <script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
     </head>
     <body>
     <nav class="navbar navbar-inverse">

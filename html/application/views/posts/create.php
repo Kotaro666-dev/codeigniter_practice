@@ -9,7 +9,7 @@
     </div>
     <div class="mb-3">
         <label class="form-label">Body</label>
-        <textarea class="form-control" name="body" placeholder="Add body"></textarea>
+        <textarea id="ckeditor" class="form-control" name="body" placeholder="Add body"></textarea>
     </div>
     <br>
     <button type="submit" class="btn btn-primary">Submit</button>
