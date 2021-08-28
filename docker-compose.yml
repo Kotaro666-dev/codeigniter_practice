@@ -10,7 +10,7 @@ services:
       - ./docker/php/php.ini:/usr/local/etc/php/php.ini
       - ./html:/var/www/html
     ports:
-      - "8080:80"
+      - "80:80"
     privileged: true
     depends_on:
       - db
