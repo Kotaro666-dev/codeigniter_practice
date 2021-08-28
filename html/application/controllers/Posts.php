@@ -29,7 +29,7 @@
         {
             $data['title'] = 'Create Post';
 
-            $data['categories'] = $this->categories_model->get_categories();
+            $data['categories'] = $this->category_model->get_categories();
 
             $this->form_validation->set_rules('title', 'Title', 'required');
             $this->form_validation->set_rules('body', 'Body', 'required');
@@ -73,7 +73,7 @@
         {
             $data['post'] = $this->post_model->get_posts($slug);
 
-            $data['categories'] = $this->categories_model->get_categories();
+            $data['categories'] = $this->category_model->get_categories();
             if (empty($data['post'])) {
                 show_404();
             }
