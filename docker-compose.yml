@@ -3,12 +3,14 @@ version: '3'
 services:
   php:
     container_name: php
-    image: php:7.2-apache
+    build:
+      context: ./
+      dockerfile: ./docker/php/Dockerfile
     volumes:
       - ./docker/php/php.ini:/usr/local/etc/php/php.ini
       - ./html:/var/www/html
     ports:
-      - 8080:80
+      - "8080:80"
     privileged: true
     depends_on:
       - db
@@ -28,7 +30,7 @@ services:
       - ./docker/db/my.cnf:/etc/mysql/conf.d/my.cnf
       - ./docker/db/sql:/docker-entrypoint-initdb.d
     ports:
-      - 3306:3306
+      - "3306:3306"
 
   phpmyadmin:
     container_name: phpmyadmin
@@ -39,4 +41,4 @@ services:
       - PMA_USER=user
       - PMA_PASSWORD=password
     ports:
-      - 4040:80
+      - "4040:80"
