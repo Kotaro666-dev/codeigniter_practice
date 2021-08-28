@@ -2,6 +2,7 @@
     <head>
         <title> CodeIgniter 3 practice </title>
 <!--        <link rel="stylesheet" href="/assets/css/bootstrap.min.css">-->
+        <link rel="stylesheet" href="/assets/css/style.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@3.4.0/cosmo/bootstrap.css">
     </head>
     <body>
