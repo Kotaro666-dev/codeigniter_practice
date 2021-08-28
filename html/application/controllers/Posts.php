@@ -47,4 +47,23 @@
             $this->post_model->delete_post($id);
             redirect('posts');
         }
+
+        public function edit($slug)
+        {
+            $data['post'] = $this->post_model->get_posts($slug);
+            if (empty($data['post'])) {
+                show_404();
+            }
+
+            $data['title'] = 'Edit Post';
+            $this->load->view('templates/header');
+            $this->load->view('posts/edit', $data);
+            $this->load->view('templates/footer');
+        }
+
+        public function update()
+        {
+            $this->post_model->update_post();
+            redirect('posts');
+        }
     }
