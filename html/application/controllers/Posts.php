@@ -1,10 +1,17 @@
 <?php
     class Posts extends CI_Controller
     {
+//        public function __construct()
+//        {
+//            parent::__construct();
+//            $this->load->model('Posts_model');
+//        }
+
+
         public function index(){
             $data['title'] = 'Latest Posts';
 
-            $data['posts'] = $this->load->model('Post_model');
+            $data['posts'] = $this->post_model->get_posts();
 
             $this->load->view('templates/header');
             $this->load->view('posts/index', $data);

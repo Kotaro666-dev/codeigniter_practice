@@ -7,7 +7,7 @@
 
         public function get_posts($slug = FALSE)
         {
-            if ($slug == FALSE) {
+            if ($slug === FALSE) {
                 $query = $this->db->get('posts');
                 return $query->result_array();
             }
