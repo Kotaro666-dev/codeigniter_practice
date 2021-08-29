@@ -1,14 +1,14 @@
 <h2><?= $title; ?></h2>
 
-<?php echo validation_errors(); ?>
-
 <?php echo form_open_multipart('posts/create'); ?>
     <div class="mb-3">
         <label class="form-label">Title</label>
+        <?php echo form_error('title'); ?>
         <input type="text" class="form-control" name="title" placeholder="Add title">
     </div>
     <div class="mb-3">
         <label class="form-label">Body</label>
+        <?php echo form_error('body'); ?>
         <textarea id="ckeditor" class="form-control" name="body" placeholder="Add body"></textarea>
     </div>
     <div class-="form-group">

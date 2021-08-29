@@ -4,3 +4,8 @@
     margin: 3px 0;
     display: block;
 }
+
+.error_message {
+    color: #ff0000;
+    font-weight: bold;
+}
