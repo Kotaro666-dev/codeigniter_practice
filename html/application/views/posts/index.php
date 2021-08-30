@@ -14,5 +14,8 @@
             <p><a class="btn btn-default" href="<?php echo site_url('/posts/'.$post['slug']); ?>">Read more</a></p>
         </div>
     </div>
-
 <?php endforeach; ?>
+
+<div class="pagination-links">
+    <?php echo $this->pagination->create_links(); ?>
+</div>
