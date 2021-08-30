@@ -49,4 +49,60 @@
                 return false;
             }
         }
+
+        public function login()
+        {
+            $data['title'] = 'Sign in';
+
+            $this->form_validation->set_rules('username', 'Username', 'required');
+            $this->form_validation->set_rules('password', 'Password', 'required');
+            $this->form_validation->set_error_delimiters('<div class="error_message">', '</div>');
+
+            if ($this->form_validation->run() === FALSE) {
+                $this->load->view('templates/header');
+                $this->load->view('users/login', $data);
+                $this->load->view('templates/footer');
+            } else {
+                // Get username
+                $username = $this->input->post('username');
+                // Get and encrypt the password
+                $password = md5($this->input->post('password'));
+
+                // login user
+                $user_id = $this->user_model->login($username, $password);
+
+                if ($user_id) {
+                    // Create session
+                    $user_data = array(
+                        'user_id' => $user_id,
+                        'username' => $username,
+                        'logged_in' => true,
+                    );
+
+                    $this->session->set_userdata($user_data);
+                    
+                    // Set message
+                    $this->session->set_flashdata('user_loggedin', 'Hello '.$username.'. You are now logged in');
+
+                    redirect('posts');
+                } else {
+                    // Set error message
+                    $this->session->set_flashdata('login_failed', 'Login is invalid');
+
+                    redirect('users/login');
+                }
+            }
+        }
+
+        public function logout() {
+            // Unset user data
+            $this->session->unset_userdata('logged_in');
+            $this->session->unset_userdata('user_id');
+            $this->session->unset_userdata('username');
+
+            // Set message
+            $this->session->set_flashdata('user_loggedout', 'You are now logged out');
+
+            redirect('users/login');
+        }
     }
