@@ -49,7 +49,10 @@
             <?php echo '<p class="alert alert-success">'.$this->session->flashdata('post_deleted').'</p>'; ?>
         <?php endif; ?>
         <?php if ($this->session->flashdata('category_created')): ?>
-            <?php echo '<p class="alert alert-success">'.$this->session->flashdata('category_registered').'</p>'; ?>
+            <?php echo '<p class="alert alert-success">'.$this->session->flashdata('category_created').'</p>'; ?>
+        <?php endif; ?>
+        <?php if ($this->session->flashdata('category_deleted')): ?>
+            <?php echo '<p class="alert alert-success">'.$this->session->flashdata('category_deleted').'</p>'; ?>
         <?php endif; ?>
         <?php if ($this->session->flashdata('user_loggedin')): ?>
             <?php echo '<p class="alert alert-success">'.$this->session->flashdata('user_loggedin').'</p>'; ?>

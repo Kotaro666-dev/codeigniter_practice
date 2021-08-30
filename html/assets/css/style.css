@@ -28,3 +28,7 @@ a.pagination-links {
     background: #f4f4f4;
     border: 1px #ccc solid;
 }
+
+.category-delete {
+    display: inline;
+}
