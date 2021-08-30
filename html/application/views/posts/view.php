@@ -32,14 +32,19 @@
 <h3>Add Comment</h3>
 <?php echo validation_errors(); ?>
 <?php echo form_open('comments/create/'.$post['id']); ?>
-    <div class="form-group">
-        <label>Name</label>
-        <input type="text" name="name" class="form-control">
-    </div>
-    <div class="form-group">
-        <label>Email</label>
-        <input type="text" name="email" class="form-control">
-    </div>
+    <?php if (!$this->session->userdata('logged_in')) : ?>
+        <div class="form-group">
+            <label>Name</label>
+            <input type="text" name="name" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Email</label>
+            <input type="text" name="email" class="form-control">
+        </div>
+    <?php else : ?>
+        <p>Name: <?php echo $this->session->userdata('username') ?></p>
+        <p>Email: <?php echo $this->session->userdata('email') ?></p>
+    <?php endif; ?>
     <div class="form-group">
         <label>Body</label>
         <textarea name="body" class="form-control"></textarea>

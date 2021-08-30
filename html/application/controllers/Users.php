@@ -67,6 +67,7 @@
                 $username = $this->input->post('username');
                 // Get and encrypt the password
                 $password = md5($this->input->post('password'));
+                // Get email
 
                 // login user
                 $user_id = $this->user_model->login($username, $password);
@@ -76,6 +77,7 @@
                     $user_data = array(
                         'user_id' => $user_id,
                         'username' => $username,
+                        'email' => $this->user_model->get_email($user_id),
                         'logged_in' => true,
                     );
 

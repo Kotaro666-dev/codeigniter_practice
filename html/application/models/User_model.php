@@ -27,6 +27,19 @@
             }
         }
 
+        public function get_email($user_id) {
+            // Validate
+            $this->db->where('id', $user_id);
+
+            $result = $this->db->get('users');
+
+            if ($result->num_rows() == 1) {
+                return $result->row(0)->email;
+            } else {
+                return false;
+            }
+        }
+
         public function check_username_exists($username) {
             $query = $this->db->get_where('users', array('username' => $username));
             if (empty($query->row_array())) {
