@@ -61,6 +61,9 @@
                     $post_image = $_FILES['userfile']['name'];
                 }
 
+                // Set message
+                $this->session->set_flashdata('post_created', 'Your post has been created');
+
                 $this->post_model->create_post($post_image);
                 redirect('posts');
             }
@@ -69,6 +72,9 @@
         public function delete($id)
         {
             $this->post_model->delete_post($id);
+
+            // Set message
+            $this->session->set_flashdata('post_deleted', 'Your post has been deleted');
             redirect('posts');
         }
 
@@ -89,6 +95,9 @@
 
         public function update()
         {
+            // Set message
+            $this->session->set_flashdata('post_updated', 'Your post has been updated');
+
             $this->post_model->update_post();
             redirect('posts');
         }
