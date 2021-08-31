@@ -7,7 +7,7 @@
             $this->form_validation->set_rules('name', 'Name', 'required');
             $this->form_validation->set_rules('username', 'Username', 'required|callback_check_username_exists');
             $this->form_validation->set_rules('email', 'Email', 'required|valid_email|callback_check_email_exists');
-            $this->form_validation->set_rules('password', 'Password', 'required');
+            $this->form_validation->set_rules('password', 'Password', 'required|callback_check_password_is_strong');
             $this->form_validation->set_rules('password2', 'Confirm Password', 'required|matches[password]');
             $this->form_validation->set_error_delimiters('<div class="error_message">', '</div>');
 
@@ -47,6 +47,21 @@
                 return true;
             } else {
                 return false;
+            }
+        }
+
+        // Check if password is strong
+        public function check_password_is_strong($password) {
+            $this->form_validation->set_message('check_password_is_strong', 'This password is weak. At least 1 number, one uppercase character, one lowercase character');
+
+            $uppercase = preg_match('@[A-Z]@', $password);
+            $lowercase = preg_match('@[a-z]@', $password);
+            $number    = preg_match('@[0-9]@', $password);
+
+            if (!$uppercase || !$lowercase || !$number || (strlen($password) < 8)) {
+                return false;
+            } else {
+                return true;
             }
         }
 
