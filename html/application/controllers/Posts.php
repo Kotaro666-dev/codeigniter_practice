@@ -1,4 +1,10 @@
 <?php
+
+	/**
+	 * @property Post_model $post_model
+	 * @property Comment_model $comment_model
+	 * @property Category_model $category_model
+	 */
     class Posts extends CI_Controller
     {
         public function index($offset = 0){
