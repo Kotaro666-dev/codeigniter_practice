@@ -46,7 +46,7 @@
             $this->load->view('templates/footer');
         }
 
-		// This is the counter function.
+		// REFERENCE: https://webeasystep.com/blog/view_article/how_to_build_unique_visitors_counter_with_codeigniter
 		private function increment_views($slug, $post_id)
 		{
 			// load cookie helper
