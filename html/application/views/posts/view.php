@@ -16,7 +16,7 @@
 <?php endif; ?>
 
 <h3>Comments</h3>
-<?php if($comments) : ?>
+<?php if ($comments) : ?>
     <?php foreach ($comments as $comment): ?>
     <div class="well">
         <strong><?php echo $comment['name']; ?></strong>

@@ -1,5 +1,7 @@
 <?php
-    class Users extends CI_Controller {
+
+    class Users extends CI_Controller
+    {
         public function register()
         {
             $data['title'] = 'Sign Up';
@@ -11,7 +13,7 @@
             $this->form_validation->set_rules('password2', 'Confirm Password', 'required|matches[password]');
             $this->form_validation->set_error_delimiters('<div class="error_message">', '</div>');
 
-            if ($this->form_validation->run() === FALSE) {
+            if ($this->form_validation->run() === false) {
                 $this->load->view('templates/header');
                 $this->load->view('users/register', $data);
                 $this->load->view('templates/footer');
@@ -29,10 +31,11 @@
         }
 
         // Check if username exists
-        public function check_username_exists($username) {
+        public function check_username_exists($username)
+        {
             $this->form_validation->set_message('check_username_exists', 'That username is taken. Please choose a different one');
 
-            if($this->user_model->check_username_exists($username)) {
+            if ($this->user_model->check_username_exists($username)) {
                 return true;
             } else {
                 return false;
@@ -40,10 +43,11 @@
         }
 
         // Check if email exists
-        public function check_email_exists($email) {
+        public function check_email_exists($email)
+        {
             $this->form_validation->set_message('check_email_exists', 'That email is taken. Please choose a different one');
 
-            if($this->user_model->check_email_exists($email)) {
+            if ($this->user_model->check_email_exists($email)) {
                 return true;
             } else {
                 return false;
@@ -51,7 +55,8 @@
         }
 
         // Check if password is strong
-        public function check_password_is_strong($password) {
+        public function check_password_is_strong($password)
+        {
             $this->form_validation->set_message('check_password_is_strong', 'This password is weak. At least 1 number, one uppercase character, one lowercase character');
 
             $uppercase = preg_match('@[A-Z]@', $password);
@@ -73,7 +78,7 @@
             $this->form_validation->set_rules('password', 'Password', 'required');
             $this->form_validation->set_error_delimiters('<div class="error_message">', '</div>');
 
-            if ($this->form_validation->run() === FALSE) {
+            if ($this->form_validation->run() === false) {
                 $this->load->view('templates/header');
                 $this->load->view('users/login', $data);
                 $this->load->view('templates/footer');
@@ -97,7 +102,7 @@
                     );
 
                     $this->session->set_userdata($user_data);
-                    
+
                     // Set message
                     $this->session->set_flashdata('user_loggedin', 'Hello '.$username.'. You are now logged in');
 
@@ -111,7 +116,8 @@
             }
         }
 
-        public function logout() {
+        public function logout()
+        {
             // Unset user data
             $this->session->unset_userdata('logged_in');
             $this->session->unset_userdata('user_id');

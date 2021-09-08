@@ -1,7 +1,9 @@
 <?php
+
     class Categories extends CI_Controller
     {
-        public function index() {
+        public function index()
+        {
             $data['title'] = 'Categories';
 
             $data['categories'] = $this->category_model->get_categories();
@@ -10,7 +12,8 @@
             $this->load->view('templates/footer');
         }
 
-        public function create() {
+        public function create()
+        {
             // Check login
             if (!$this->session->userdata('logged_in')) {
                 redirect('users/login');
@@ -20,7 +23,7 @@
 
             $this->form_validation->set_rules('name', 'Name', 'required');
 
-            if ($this->form_validation->run() === FALSE) {
+            if ($this->form_validation->run() === false) {
                 $this->load->view('templates/header');
                 $this->load->view('categories/create', $data);
                 $this->load->view('templates/footer');
@@ -33,7 +36,8 @@
             }
         }
 
-        public function posts($id) {
+        public function posts($id)
+        {
             $data['title'] = $this->category_model->get_category($id)->name;
 
             $data['posts'] = $this->post_model->get_posts_by_category($id);
