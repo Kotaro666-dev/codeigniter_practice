@@ -37,13 +37,40 @@
                 show_404();
             }
 			// views をインクリメント
-			$this->post_model->update_views($post_id);
+			$this->increment_views($slug, $post_id);
+
 
             $data['title'] = $data['post']['title'];
             $this->load->view('templates/header');
             $this->load->view('posts/view', $data);
             $this->load->view('templates/footer');
         }
+
+		// This is the counter function.
+		private function increment_views($slug, $post_id)
+		{
+			// load cookie helper
+			$this->load->helper('cookie');
+			// this line will return the cookie which has slug name
+			$check_visitor = $this->input->cookie(urldecode($slug), FALSE);
+			// this line will return the visitor ip address
+			$ip = $this->input->ip_address();
+			// if the visitor visit this article for first time then //
+			//set new cookie and update article_views column  ..
+			//you might be notice we used slug for cookie name and ip
+			//address for value to distinguish between articles  views
+			if ($check_visitor) {
+				return;
+			}
+			$cookie = array(
+				"name"   => urldecode($slug),
+				"value"  => "$ip",
+				"expire" =>  time() + 7200,
+				"secure" => false
+			);
+			$this->input->set_cookie($cookie);
+			$this->post_model->update_views($post_id);
+		}
 
         public function create()
         {
