@@ -36,6 +36,8 @@
             if (empty($data['post'])) {
                 show_404();
             }
+			// views をインクリメント
+			$this->post_model->update_views($post_id);
 
             $data['title'] = $data['post']['title'];
             $this->load->view('templates/header');

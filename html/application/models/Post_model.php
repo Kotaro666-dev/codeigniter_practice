@@ -20,6 +20,18 @@
             return $query->row_array();
         }
 
+		public function update_views($post_id) {
+			// return current article views
+			$this->db->where('id', $post_id);
+			$this->db->select('views');
+			$post = $this->db->get('posts')->row();
+
+			// then increase by one
+			$this->db->where('id', $post_id);
+			$this->db->set('views', ($post->views + 1));
+			$this->db->update('posts');
+		}
+
         public function create_post($post_image)
         {
             $slug = url_title($this->input->post('title'));
@@ -53,7 +65,7 @@
                 'body' => $this->input->post('body'),
                 'category_id' => $this->input->post('category_id'),
                 'updated_at' => date("Y-m-d H:i:s"),
-        );
+        	);
             $this->db->where('id', $this->input->post('id'));
             return $this->db->update('posts', $data);
         }
