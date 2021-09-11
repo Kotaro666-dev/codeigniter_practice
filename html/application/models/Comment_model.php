@@ -1,12 +1,15 @@
 <?php
 
-    /**
-     *	 @property CI_Input $input
-     */
+	/**
+	 *	 @property CI_Input 			$input
+	 *   @property CI_Loader 			$load
+	 * 	 @property CI_DB_query_builder	 $db
+	 */
     class Comment_model extends CI_Model
     {
         public function __construct()
         {
+			parent::__construct();
             $this->load->database();
         }
 
