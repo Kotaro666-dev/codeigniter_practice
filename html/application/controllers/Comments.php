@@ -1,5 +1,10 @@
 <?php
 
+	/* @property CI_Input 			$input
+	 * @property Post_model 		$post_model
+	 * @property CI_Form_validation $form_validation
+	 * @property Comment_model		$comment_model
+	 */
     class Comments extends CI_Controller
     {
         public function create($post_id)
