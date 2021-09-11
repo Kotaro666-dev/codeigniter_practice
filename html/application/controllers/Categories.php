@@ -1,5 +1,12 @@
 <?php
 
+
+    /**
+     *  @property Category_model $category_model
+     *  @property  Post_model $post_model
+     *  @property CI_Session $session
+     *  @property CI_Form_validation $form_validation
+     */
     class Categories extends CI_Controller
     {
         public function index()

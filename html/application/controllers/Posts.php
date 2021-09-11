@@ -4,11 +4,12 @@
      * @property  Post_model 			$post_model
      * @property  Comment_model 		$comment_model
      * @property  Category_model 		$category_model
-	 * @property  CI_Form_validation 	$form_validation
-	 * @property  CI_Pagination 		$pagination
-	 * @property  CI_Input 				$input
-	 * @property  CI_Session			$session
-	 * @property  CI_Upload				$upload
+     * @property  CI_Form_validation 	$form_validation
+     * @property  CI_Pagination 		$pagination
+     * @property  CI_Input 				$input
+     * @property  CI_Session			$session
+     * @property  CI_Upload				$upload
+     * @property  CI_DB_query_builder	$db
      */
     class Posts extends CI_Controller
     {

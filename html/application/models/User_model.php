@@ -1,5 +1,9 @@
 <?php
 
+    /**
+     * @property CI_Input 				$input
+     * @property CI_DB_query_builder 	$db
+     */
     class User_model extends CI_Model
     {
         public function register($enc_password)

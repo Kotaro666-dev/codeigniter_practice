@@ -1,5 +1,11 @@
 <?php
 
+    /**
+     * @property CI_Form_validation $form_validation
+     * @property CI_Input $input
+     * @property User_model $user_model
+     * @property CI_Session $session
+     */
     class Users extends CI_Controller
     {
         public function register()
