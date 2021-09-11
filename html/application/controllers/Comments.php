@@ -15,6 +15,7 @@
             $this->form_validation->set_rules('name', 'Name', 'required');
             $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
             $this->form_validation->set_rules('body', 'Body', 'required');
+			$this->form_validation->set_error_delimiters('<div class="error_message">', '</div>');
 
             if ($this->form_validation->run() === false) {
                 $this->load->view('templates/header');

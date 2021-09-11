@@ -32,23 +32,23 @@
 <h3>Add Comment</h3>
 <?php echo form_open('comments/create/'.$post['id']); ?>
     <?php if (!$this->session->userdata('logged_in')) : ?>
-		<?php echo form_error('name'); ?>
         <div class="form-group">
             <label>Name</label>
+			<?php echo form_error('name'); ?>
             <input type="text" name="name" class="form-control">
         </div>
-		<?php echo form_error('email'); ?>
         <div class="form-group">
             <label>Email</label>
+			<?php echo form_error('email'); ?>
             <input type="text" name="email" class="form-control">
         </div>
     <?php else : ?>
         <p>Name: <?php echo $this->session->userdata('username') ?></p>
         <p>Email: <?php echo $this->session->userdata('email') ?></p>
     <?php endif; ?>
-    <?php echo form_error('body'); ?>
     <div class="form-group">
         <label>Body</label>
+		<?php echo form_error('body'); ?>
         <textarea name="body" class="form-control"></textarea>
     </div>
     <input type="hidden" name="slug" value="<?php echo $post['slug']; ?>">
